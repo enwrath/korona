@@ -3,11 +3,23 @@
   <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script src="data/data.js"></script>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <canvas id="myChart"></canvas>
-
-
+  <h1>Koronatartunnat Suomessa</h1>
+  <div id="koronaYleiskuva">
+    <div class="infoBox">
+      <p>Tartuntoja yhteensä</p>
+      <p id="totalNumber" class="boldText">?</p>
+    </div>
+    <div class="infoBox">
+      <p>Väestöstä tartunnan saaneita</p>
+      <p id="infectedPercent" class="boldText">?</p>
+    </div>
+  </div>
+  <div id="kuvaajaDiv">
+    <canvas id="koronaKuvaaja"></canvas>
+  </div>
 
   <script src="index.js"></script>
 </body>

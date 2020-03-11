@@ -1,0 +1,26 @@
+body {
+  text-align: center;
+}
+
+#kuvaajaDiv {
+  position: relative;
+  background-color: #ebf1f3;
+  border-style: outset;
+  margin: 0 5%;
+}
+
+#koronaYleiskuva {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.infoBox {
+  border-style: outset;
+  background-color: #ebf1f3;
+  flex: 1 auto;
+  margin: 1em;
+}
+.boldText {
+  font-weight: bold;
+}
