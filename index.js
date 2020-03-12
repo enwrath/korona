@@ -5,9 +5,9 @@ function workOnData(datajson) {
 
   let firstDate = new Date(datajson.confirmed[0].date);
   let date = new Date(datajson.confirmed[0].date);
-  let lastDate = new Date().setDate(new Date().getDate()+1)
+  let lastDate = new Date(datajson.confirmed[datajson.confirmed.length-1].date);
   // x-axis values
-  while (date < lastDate) {
+  while (date <= lastDate) {
     dates.push(`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`)
     date.setDate(date.getDate()+1)
   }
