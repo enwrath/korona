@@ -15,6 +15,7 @@ function workOnData(datajson) {
   let infections = new Array(dates.length).fill(0);
   let deaths = new Array(dates.length).fill(0);
   let infectionsPerDay = new Array(dates.length).fill(0);
+  let deathsPerDay = new Array(dates.length).fill(0);
 
   datajson.confirmed.forEach( item => {
     let daysFromStart = Math.round(Math.abs((firstDate.getTime() - new Date(item.date).getTime()) / (msInDay)));
@@ -29,8 +30,9 @@ function workOnData(datajson) {
     for (let i = daysFromStart; i < deaths.length; i++) {
       deaths[i] += 1;
     }
+    deathsPerDay[daysFromStart] += 1;
   });
-  displayData(infections, deaths, infectionsPerDay, dates);
+  displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates);
 }
 
 function loadData() {
@@ -39,7 +41,7 @@ function loadData() {
       .then(data => workOnData(data));
 }
 
-function displayData(infections, deaths, infectionsPerDay, dates) {
+function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) {
   const finns = 5528442; // Population, by end of Jan 2020.
   let totalInfected = infections[infections.length-1];
   let totalDead = deaths[deaths.length-1];
@@ -49,6 +51,12 @@ function displayData(infections, deaths, infectionsPerDay, dates) {
 
   document.getElementById('totalDead').textContent = totalDead;
   document.getElementById('deadPercent').textContent = (totalDead / finns * 100).toFixed(5) + "%";
+
+  document.getElementById('todayNumber').textContent = infectionsPerDay[infections.length-1];
+  document.getElementById('yesterdayNumber').textContent = infectionsPerDay[infections.length-2];
+
+  document.getElementById('todayDead').textContent = deathsPerDay[infections.length-1];
+  document.getElementById('yesterdayDead').textContent = deathsPerDay[infections.length-2];
 
 
   let ctx1 = document.getElementById('koronaKuvaaja').getContext('2d');

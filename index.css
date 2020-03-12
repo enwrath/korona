@@ -18,9 +18,23 @@ body {
 .infoBox {
   border-style: outset;
   background-color: #ebf1f3;
-  flex: 1 auto;
-  margin: 1em;
+  flex: 1;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
 }
-.boldText {
-  font-weight: bold;
+
+.infoBox > div {
+  background-color: #ebf1f3;
+  width: 100%;
+  height: 30%;
+  vertical-align: middle;
+}
+.infoBox > div:first-child {
+  background-color: #cacaca;
+}
+.infoBox > div:nth-child(2) {
+  height: 50%;
+  font-weight: bolder;
+  font-size: large;
 }
