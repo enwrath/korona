@@ -2,13 +2,21 @@ body {
   text-align: center;
 }
 
-#kuvaajaDiv {
-  position: relative;
-  background-color: #ebf1f3;
-  border-style: outset;
-  margin: 0 5%;
+
+.kuvaajaRivi {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0.25em;
 }
 
+.kuvaajaDiv {
+  background-color: #ebf1f3;
+  border-style: outset;
+  margin: 0.25em;
+  flex: 1;
+}
 #koronaYleiskuva {
   display: flex;
   flex-direction: row;

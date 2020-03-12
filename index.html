@@ -10,9 +10,7 @@
   <title>Koronatilanne Suomessa</title>
 </head>
 <body>
-  <h1>Koronatartunnat Suomessa</h1>
-
-  <h2>Yleiskuva</h2>
+  <h2>Koronatilanne Suomessa</h2>
   <div id="koronaYleiskuva">
     <div class="infoBox">
       <div><span>Tartuntoja yhteensä</span></div>
@@ -41,14 +39,32 @@
       <div><p>Eilen <span id="yesterdayDead">?</span></p></div>
     </div>
   </div>
+
   <hr>
-  <div id="kuvaajaDiv">
-    <canvas id="koronaKuvaaja"></canvas>
+
+  <div class="kuvaajaRivi">
+      <div class="kuvaajaDiv">
+        <canvas id="koronaKuvaaja7pv"></canvas>
+    </div>
+      <div class="kuvaajaDiv">
+        <canvas id="koronaKuvaaja30pv"></canvas>
+    </div>
   </div>
+  <div class="kuvaajaRivi">
+      <div class="kuvaajaDiv">
+        <canvas id="koronaKuvaaja7pvkumu"></canvas>
+    </div>
+      <div class="kuvaajaDiv">
+        <canvas id="koronaKuvaaja30pvkumu"></canvas>
+    </div>
+  </div>
+
+<hr>
+Data: <a href="https://github.com/HS-Datadesk/koronavirus-avoindata">HS</a>
 
   <script src="index.js"></script>
 </body>
 <footer>
-  Data: <a href="https://github.com/HS-Datadesk/koronavirus-avoindata">HS</a>
+
 </footer>
 </html>

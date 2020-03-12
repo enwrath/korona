@@ -58,36 +58,27 @@ function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) 
   document.getElementById('todayDead').textContent = deathsPerDay[infections.length-1];
   document.getElementById('yesterdayDead').textContent = deathsPerDay[infections.length-2];
 
-
-  let ctx1 = document.getElementById('koronaKuvaaja').getContext('2d');
-  let chart1 = new Chart(ctx1, {
+  let ctx2 = document.getElementById('koronaKuvaaja7pv').getContext('2d');
+  let chart2 = new Chart(ctx2, {
     // The type of chart we want to create
     type: 'line',
 
     // The data for our dataset
     data: {
-      labels: dates,
+      labels: dates.slice(dates.length-7),
       datasets: [{
-        label: 'Tartuntoja yhteensä',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: infections,
-        lineTension: 0,
-        pointRadius: 1
-      },
-      {
         label: 'Tartuntoja per päivä',
-        backgroundColor: 'rgba(175, 155, 35, 0.5)',
-        borderColor: 'rgb(175, 155, 35)',
-        data: infectionsPerDay,
+        backgroundColor: 'rgba(192, 112, 172, 0.5)',
+        borderColor: 'rgb(192, 112, 172)',
+        data: infectionsPerDay.slice(dates.length-7),
         lineTension: 0,
         pointRadius: 1
       },
       {
-        label: 'Koronakuolemia yhteensä',
+        label: 'Kuolemia per päivä',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderColor: 'rgb(0, 0, 0)',
-        data: deaths,
+        data: infectionsPerDay.slice(dates.length-7),
         lineTension: 0,
         pointRadius: 1
       }]
@@ -95,6 +86,152 @@ function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) 
 
     // Configuration options go here
     options: {
+      title: {
+          display: true,
+          text: '7pv per päivä'
+      },
+      tooltips: {
+        mode: "index",
+        intersect: false,
+        position: "nearest"
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'hlö'
+          }
+        }]
+      }
+    }
+  });
+  let ctx2k = document.getElementById('koronaKuvaaja7pvkumu').getContext('2d');
+  let chart2k = new Chart(ctx2k, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+      labels: dates.slice(dates.length-7),
+      datasets: [{
+        label: 'Tartuntoja yhteensä',
+        backgroundColor: 'rgba(192, 112, 172, 0.5)',
+        borderColor: 'rgb(192, 112, 172)',
+        data: infections.slice(dates.length-7),
+        lineTension: 0,
+        pointRadius: 1
+      },
+      {
+        label: 'Kuolemia yhteensä',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        borderColor: 'rgb(0, 0, 0)',
+        data: infections.slice(dates.length-7),
+        lineTension: 0,
+        pointRadius: 1
+      }]
+    },
+
+    // Configuration options go here
+    options: {
+      title: {
+          display: true,
+          text: '7pv kumulatiivinen'
+      },
+      tooltips: {
+        mode: "index",
+        intersect: false,
+        position: "nearest"
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'hlö'
+          }
+        }]
+      }
+    }
+  });
+
+  let ctx3 = document.getElementById('koronaKuvaaja30pv').getContext('2d');
+  let chart3 = new Chart(ctx3, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+      labels: dates.slice(dates.length-30),
+      datasets: [{
+        label: 'Tartuntoja per päivä',
+        backgroundColor: 'rgba(192, 112, 172, 0.5)',
+        borderColor: 'rgb(192, 112, 172)',
+        data: infectionsPerDay.slice(dates.length-30),
+        lineTension: 0,
+        pointRadius: 1
+      },
+      {
+        label: 'Kuolemia per päivä',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        borderColor: 'rgb(0, 0, 0)',
+        data: infectionsPerDay.slice(dates.length-30),
+        lineTension: 0,
+        pointRadius: 1
+      }]
+    },
+
+    // Configuration options go here
+    options: {
+      title: {
+          display: true,
+          text: '30pv per päivä'
+      },
+      tooltips: {
+        mode: "index",
+        intersect: false,
+        position: "nearest"
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'hlö'
+          }
+        }]
+      }
+    }
+  });
+  let ctx3k = document.getElementById('koronaKuvaaja30pvkumu').getContext('2d');
+  let chart3k = new Chart(ctx3k, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+      labels: dates.slice(dates.length-30),
+      datasets: [{
+        label: 'Tartuntoja yhteensä',
+        backgroundColor: 'rgba(192, 112, 172, 0.5)',
+        borderColor: 'rgb(192, 112, 172)',
+        data: infections.slice(dates.length-30),
+        lineTension: 0,
+        pointRadius: 1
+      },
+      {
+        label: 'Kuolemia yhteensä',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        borderColor: 'rgb(0, 0, 0)',
+        data: infections.slice(dates.length-30),
+        lineTension: 0,
+        pointRadius: 1
+      }]
+    },
+
+    // Configuration options go here
+    options: {
+      title: {
+          display: true,
+          text: '30pv kumulatiivinen'
+      },
       tooltips: {
         mode: "index",
         intersect: false,
