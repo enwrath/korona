@@ -42,9 +42,13 @@ function loadData() {
 function displayData(infections, deaths, infectionsPerDay, dates) {
   const finns = 5528442; // Population, by end of Jan 2020.
   let totalInfected = infections[infections.length-1];
+  let totalDead = deaths[deaths.length-1];
 
   document.getElementById('totalNumber').textContent = totalInfected;
   document.getElementById('infectedPercent').textContent = (totalInfected / finns * 100).toFixed(5) + "%";
+
+  document.getElementById('totalDead').textContent = totalDead;
+  document.getElementById('deadPercent').textContent = (totalDead / finns * 100).toFixed(5) + "%";
 
 
   let ctx1 = document.getElementById('koronaKuvaaja').getContext('2d');
