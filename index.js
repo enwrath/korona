@@ -5,9 +5,10 @@ function workOnData(datajson) {
 
   let firstDate = new Date(datajson.confirmed[0].date);
   let date = new Date(datajson.confirmed[0].date);
-  let lastDate = new Date(datajson.confirmed[datajson.confirmed.length-1].date);
+  let daysInChart = Math.round(Math.abs((firstDate.getTime() - new Date().getTime()) / (msInDay)))
+  
   // x-axis values
-  while (date <= lastDate) {
+  for (let i = 0; i <= daysInChart; i++) {
     dates.push(`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`)
     date.setDate(date.getDate()+1)
   }
