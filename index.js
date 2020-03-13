@@ -6,7 +6,7 @@ function workOnData(datajson) {
   let firstDate = new Date(datajson.confirmed[0].date);
   let date = new Date(datajson.confirmed[0].date);
   let daysInChart = Math.round(Math.abs((firstDate.getTime() - new Date().getTime()) / (msInDay)))
-  
+
   // x-axis values
   for (let i = 0; i <= daysInChart; i++) {
     dates.push(`${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`)
@@ -79,7 +79,7 @@ function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) 
         label: 'Kuolemia per päivä',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderColor: 'rgb(0, 0, 0)',
-        data: infectionsPerDay.slice(dates.length-7),
+        data: deathsPerDay.slice(dates.length-7),
         lineTension: 0,
         pointRadius: 1
       }]
@@ -126,7 +126,7 @@ function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) 
         label: 'Kuolemia yhteensä',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderColor: 'rgb(0, 0, 0)',
-        data: infections.slice(dates.length-7),
+        data: deaths.slice(dates.length-7),
         lineTension: 0,
         pointRadius: 1
       }]
@@ -174,7 +174,7 @@ function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) 
         label: 'Kuolemia per päivä',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderColor: 'rgb(0, 0, 0)',
-        data: infectionsPerDay.slice(dates.length-30),
+        data: deathsPerDay.slice(dates.length-30),
         lineTension: 0,
         pointRadius: 1
       }]
@@ -221,7 +221,7 @@ function displayData(infections, deaths, infectionsPerDay, deathsPerDay, dates) 
         label: 'Kuolemia yhteensä',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderColor: 'rgb(0, 0, 0)',
-        data: infections.slice(dates.length-30),
+        data: deaths.slice(dates.length-30),
         lineTension: 0,
         pointRadius: 1
       }]
